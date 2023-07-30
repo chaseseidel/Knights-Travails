@@ -35,4 +35,9 @@ export default function knightMoves(start, end) {
     path.unshift(pathTile.getPosition());
     pathTile = pathTile.parent;
   }
+
+  console.log(`You made it in ${path.length} moves! Here's your path:`);
+  path.forEach((item) => {
+    console.log(item);
+  });
 }
