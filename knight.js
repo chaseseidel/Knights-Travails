@@ -8,15 +8,11 @@ export default function knightMoves(start, end) {
   const visited = new Map();
   const path = [];
 
-  let pathTile = "";
-
-  let i = 0;
   while (queue.length > 0) {
     const tile = queue.shift();
 
     if (tile.getPosition() === end) {
-      pathTile = tile;
-      break;
+      path.push(tile);
     }
 
     tile.createMoves();
@@ -31,6 +27,8 @@ export default function knightMoves(start, end) {
     });
   }
 
+  let pathTile = path[0];
+  path.pop();
   while (pathTile != null) {
     path.unshift(pathTile.getPosition());
     pathTile = pathTile.parent;
